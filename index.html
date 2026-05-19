@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abdul Halim Khan Foundation | আবদুল হালিম খান ফাউন্ডেশন</title>
+<link href="index_files/css2.css" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --navy: #0f4326;
+  --blue: #1a6b3c;
+  --blue-light: #2a8a50;
+  --red: #c9920a;
+  --red-light: #e8a80e;
+  --white: #ffffff;
+  --off-white: #f8f8f6;
+  --gray-light: #f0f0ec;
+  --gray: #888;
+  --text: #222;
+  --text-muted: #666;
+  --nav-h: 70px;
+}
+
+html { scroll-behavior: smooth; }
+body { font-family: 'Source Sans 3', 'Hind Siliguri', sans-serif; color: var(--text); background: white; }
+
+/* ── TOP BAR ── */
+.top-bar {
+  background: var(--navy);
+  color: rgba(255,255,255,0.8);
+  font-size: 13px;
+  padding: 7px 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.top-bar a { color: rgba(255,255,255,0.8); text-decoration: none; }
+.top-bar a:hover { color: white; }
+.top-bar-right { display: flex; gap: 1.5rem; align-items: center; }
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 1000;
+  background: white;
+  border-bottom: 3px solid var(--red);
+  height: var(--nav-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo img, .logo-circle {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: var(--blue);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Merriweather', serif; font-size: 16px; font-weight: 700;
+  color: white; flex-shrink: 0;
+}
+.logo-text-wrap { display: flex; flex-direction: column; }
+.logo-en { font-family: 'Merriweather', serif; font-size: 13px; font-weight: 700; color: var(--navy); line-height: 1.3; }
+.logo-bn { font-family: 'Hind Siliguri', sans-serif; font-size: 11px; color: var(--gray); }
+
+.nav-menu { display: flex; align-items: center; gap: 0; }
+.nav-item { position: relative; }
+.nav-item > a {
+  display: block; padding: 0 16px; height: var(--nav-h); line-height: var(--nav-h);
+  font-size: 13.5px; font-weight: 700; color: var(--text);
+  text-decoration: none; text-transform: uppercase; letter-spacing: 0.4px;
+  white-space: nowrap; transition: color 0.2s;
+}
+.nav-item > a:hover, .nav-item:hover > a { color: var(--blue); }
+.nav-item:hover .dropdown { display: block; }
+
+.dropdown {
+  display: none; position: absolute; top: var(--nav-h); left: 0;
+  background: white; border-top: 3px solid var(--blue);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+  min-width: 200px; z-index: 100;
+}
+.dropdown a {
+  display: block; padding: 11px 18px;
+  font-size: 13px; color: var(--text); text-decoration: none;
+  border-bottom: 1px solid #f0f0f0; transition: background 0.15s;
+}
+.dropdown a:hover { background: var(--gray-light); color: var(--blue); }
+
+.nav-donate {
+  background: var(--red); color: white !important;
+  padding: 9px 22px !important; height: auto !important; line-height: normal !important;
+  border-radius: 2px; margin-left: 12px;
+  font-size: 13px !important; letter-spacing: 1px !important;
+  transition: background 0.2s !important;
+}
+.nav-donate:hover { background: var(--red-light) !important; color: white !important; }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; overflow: hidden;
+  min-height: 85vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 4rem 2rem;
+  background: var(--navy);
+}
+
+/* Unsplash free image - healthcare/community */
+.hero-bg {
+  position: absolute; inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&q=80');
+  background-size: cover; background-position: center;
+  opacity: 0.25;
+}
+
+.hero-content { position: relative; z-index: 1; max-width: 750px; }
+
+.hero-tagline {
+  font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+  color: rgba(255,255,255,0.7); margin-bottom: 1.2rem;
+  font-weight: 600;
+}
+
+.hero h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 700; color: white; line-height: 1.25;
+  margin-bottom: 0.6rem;
+}
+
+.hero-bn {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  color: rgba(255,255,255,0.75); margin-bottom: 1.4rem;
+}
+
+.hero-line {
+  width: 60px; height: 3px; background: var(--red);
+  margin: 0 auto 1.4rem;
+}
+
+.hero p {
+  font-size: 1.1rem; color: rgba(255,255,255,0.8);
+  line-height: 1.8; max-width: 580px; margin: 0 auto 2.2rem;
+}
+
+.hero-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+.btn-red {
+  background: var(--red); color: white;
+  padding: 13px 32px; border-radius: 2px;
+  font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer;
+  transition: background 0.2s, transform 0.15s; display: inline-block;
+}
+.btn-red:hover { background: var(--red-light); transform: translateY(-1px); }
+
+.btn-ghost {
+  background: transparent; color: white;
+  border: 2px solid rgba(255,255,255,0.6);
+  padding: 13px 32px; border-radius: 2px;
+  font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; transition: all 0.2s; display: inline-block;
+}
+.btn-ghost:hover { border-color: white; background: rgba(255,255,255,0.1); }
+
+/* ── ANNOUNCEMENT BAR ── */
+.announce-bar {
+  background: var(--blue); color: white;
+  padding: 14px 2rem; text-align: center;
+  font-size: 14px; line-height: 1.6;
+}
+.announce-bar a { color: #ffe08a; font-weight: 700; text-decoration: underline; }
+
+/* ── STATS ── */
+.stats {
+  background: white;
+  display: flex; justify-content: center; flex-wrap: wrap;
+  border-bottom: 1px solid #e8e8e8;
+  box-shadow: 0 3px 15px rgba(0,0,0,0.06);
+}
+.stat {
+  padding: 2rem 2.5rem; text-align: center;
+  border-right: 1px solid #eee; flex: 1; min-width: 130px;
+}
+.stat:last-child { border-right: none; }
+.stat-n {
+  font-family: 'Merriweather', serif;
+  font-size: 2.2rem; font-weight: 700; color: var(--blue); line-height: 1;
+}
+.stat-l { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.5px; margin-top: 5px; }
+.stat-bn { font-family: 'Hind Siliguri', sans-serif; font-size: 11px; color: #bbb; }
+
+/* ── SECTIONS ── */
+section { padding: 5rem 2rem; }
+.container { max-width: 1100px; margin: 0 auto; }
+.container-sm { max-width: 860px; margin: 0 auto; }
+
+.sec-label {
+  font-size: 12px; letter-spacing: 3px; text-transform: uppercase;
+  color: var(--red); font-weight: 700; margin-bottom: 0.6rem; display: block;
+}
+.sec-title {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(1.7rem, 2.8vw, 2.3rem);
+  color: var(--navy); line-height: 1.3; margin-bottom: 0.4rem;
+}
+.sec-bn {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 1rem; color: var(--gray); margin-bottom: 1rem;
+}
+.sec-rule { width: 50px; height: 3px; background: var(--blue); border-radius: 1px; }
+.sec-center { text-align: center; }
+.sec-center .sec-rule { margin: 1rem auto 0; }
+
+/* ── ABOUT ── */
+.about-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+
+.about-img {
+  position: relative;
+}
+.img-box {
+  width: 100%; height: 420px; border-radius: 2px; overflow: hidden;
+  background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 1rem; color: rgba(255,255,255,0.7);
+}
+.img-box .img-icon { font-size: 5rem; }
+.img-box p { font-size: 0.9rem; text-align: center; line-height: 1.6; max-width: 200px; }
+
+/* Real Unsplash image option */
+.img-real {
+  width: 100%; height: 420px; border-radius: 2px;
+  background-image: url('https://images.unsplash.com/photo-1584515933487-779824d29309?w=800&q=80');
+  background-size: cover; background-position: center;
+}
+
+.about-badge {
+  position: absolute; bottom: -18px; right: -18px;
+  background: var(--red); color: white;
+  width: 100px; height: 100px; border-radius: 50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; box-shadow: 0 6px 20px rgba(192,57,43,0.4);
+}
+.about-badge .yr { font-family: 'Merriweather', serif; font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.about-badge .yr-t { font-size: 9px; text-transform: uppercase; letter-spacing: 1px; opacity: 0.85; margin-top: 3px; }
+
+.about-text { padding-left: 1rem; }
+.about-text h3 { font-family: 'Merriweather', serif; font-size: 1.7rem; color: var(--navy); margin: 1.2rem 0 0.5rem; }
+.about-text .about-bn { font-family: 'Hind Siliguri', sans-serif; color: var(--gray); font-size: 1rem; margin-bottom: 1.2rem; }
+.about-text p { line-height: 1.85; color: var(--text-muted); margin-bottom: 1rem; font-size: 1rem; }
+.about-text .btn-blue { display: inline-block; margin-top: 1rem; }
+
+.btn-blue {
+  background: var(--blue); color: white;
+  padding: 12px 28px; border-radius: 2px;
+  font-size: 13px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; display: inline-block; transition: background 0.2s;
+}
+.btn-blue:hover { background: var(--blue-light); }
+
+/* ── PROJECTS ── */
+.projects-bg { background: var(--gray-light); }
+.projects-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+
+.proj-card {
+  background: white; border-radius: 2px;
+  overflow: hidden; border: 1px solid #e5e5e5;
+  transition: box-shadow 0.25s, transform 0.2s;
+}
+.proj-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,0.1); transform: translateY(-3px); }
+
+.proj-thumb {
+  height: 200px; display: flex; align-items: center; justify-content: center;
+  font-size: 4rem; color: white; position: relative; overflow: hidden;
+}
+.proj-thumb-img {
+  height: 200px; background-size: cover; background-position: center;
+  position: relative;
+}
+.proj-thumb-img::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.5));
+}
+
+.proj-body { padding: 1.4rem 1.5rem 1.6rem; }
+.proj-body h3 { font-family: 'Merriweather', serif; font-size: 1.1rem; color: var(--navy); margin-bottom: 3px; }
+.proj-body .proj-bn { font-family: 'Hind Siliguri', sans-serif; font-size: 0.85rem; color: var(--blue); margin-bottom: 0.7rem; }
+.proj-body p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.7; }
+.proj-more {
+  display: inline-flex; align-items: center; gap: 4px;
+  margin-top: 1rem; font-size: 12px; font-weight: 700;
+  color: var(--blue); text-decoration: none; text-transform: uppercase; letter-spacing: 0.5px;
+}
+.proj-more:hover { color: var(--red); }
+.proj-more::after { content: ' →'; }
+
+/* ── GET INVOLVED ── */
+.involved-bg { background: var(--navy); }
+.involved-bg .sec-label { color: #ffe08a; }
+.involved-bg .sec-title { color: white; }
+.involved-bg .sec-bn { color: rgba(255,255,255,0.6); }
+.involved-bg .sec-rule { background: var(--red); }
+
+.involved-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem; margin-top: 3rem;
+}
+
+.inv-card {
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 2px; padding: 2.5rem 2rem; text-align: center;
+  transition: background 0.2s, border-color 0.2s;
+}
+.inv-card:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); }
+
+.inv-icon { font-size: 3rem; margin-bottom: 1.2rem; display: block; }
+.inv-card h3 { font-family: 'Merriweather', serif; font-size: 1.35rem; color: white; margin-bottom: 0.3rem; }
+.inv-card .inv-bn { font-family: 'Hind Siliguri', sans-serif; font-size: 0.9rem; color: #ffe08a; margin-bottom: 0.8rem; }
+.inv-card p { font-size: 0.92rem; color: rgba(255,255,255,0.68); line-height: 1.75; margin-bottom: 1.5rem; }
+
+.btn-white {
+  background: white; color: var(--navy);
+  padding: 10px 24px; border-radius: 2px;
+  font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; display: inline-block; border: none; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-white:hover { background: var(--red); color: white; }
+
+/* ── NEWS ── */
+.news-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem; margin-top: 3rem;
+}
+.news-card {
+  background: white; border: 1px solid #e5e5e5; border-radius: 2px;
+  overflow: hidden; transition: box-shadow 0.2s;
+}
+.news-card:hover { box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+.news-cat {
+  background: var(--blue); color: white;
+  font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 7px 15px;
+}
+.news-body { padding: 1.3rem 1.4rem 1.5rem; }
+.news-date { font-size: 12px; color: var(--gray); margin-bottom: 0.5rem; }
+.news-body h4 { font-family: 'Merriweather', serif; font-size: 1.05rem; color: var(--navy); line-height: 1.45; margin-bottom: 0.4rem; }
+.news-body .news-bn { font-family: 'Hind Siliguri', sans-serif; font-size: 0.85rem; color: var(--blue); margin-bottom: 0.6rem; }
+.news-body p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+
+/* ── DONATE BAND ── */
+.donate-band {
+  background: var(--red); padding: 4.5rem 2rem; text-align: center;
+}
+.donate-band h2 { font-family: 'Merriweather', serif; font-size: 2rem; color: white; margin-bottom: 0.4rem; }
+.donate-band .bn { font-family: 'Hind Siliguri', sans-serif; font-size: 1.1rem; color: rgba(255,255,255,0.85); margin-bottom: 0.8rem; }
+.donate-band p { color: rgba(255,255,255,0.85); max-width: 500px; margin: 0 auto 2rem; line-height: 1.7; }
+
+.btn-white-outline {
+  background: transparent; color: white;
+  border: 2px solid white; padding: 13px 36px; border-radius: 2px;
+  font-size: 14px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  text-decoration: none; display: inline-block; cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-white-outline:hover { background: white; color: var(--red); }
+
+/* ── CONTACT ── */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; }
+.contact-info h3 { font-family: 'Merriweather', serif; font-size: 1.4rem; color: var(--navy); margin-bottom: 1.5rem; }
+.c-row { display: flex; gap: 14px; margin-bottom: 1.1rem; align-items: flex-start; }
+.c-icon { font-size: 1.3rem; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+.c-row p { font-size: 0.93rem; color: var(--text-muted); line-height: 1.65; }
+.c-row strong { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: var(--text); margin-bottom: 2px; }
+
+.socials { display: flex; gap: 8px; margin-top: 1.2rem; }
+.socials a {
+  width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid #ddd; display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 700; color: var(--navy); text-decoration: none;
+  transition: all 0.2s;
+}
+.socials a:hover { background: var(--blue); color: white; border-color: var(--blue); }
+
+.contact-form { display: flex; flex-direction: column; gap: 12px; }
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+  padding: 12px 14px; border: 1px solid #ddd; border-radius: 2px;
+  font-family: inherit; font-size: 14px; color: var(--text);
+  outline: none; transition: border-color 0.2s; width: 100%;
+  background: #fafafa;
+}
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: var(--blue); background: white; }
+.contact-form textarea { resize: vertical; min-height: 110px; }
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: #bbb; }
+
+/* ── FOOTER ── */
+footer { background: var(--navy); color: rgba(255,255,255,0.75); padding: 4rem 2rem 1.5rem; }
+.footer-grid {
+  max-width: 1100px; margin: 0 auto;
+  display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem;
+  padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.1);
+  margin-bottom: 1.5rem;
+}
+.f-brand .f-logo { display: flex; align-items: center; gap: 12px; margin-bottom: 1rem; }
+.f-logo-circle {
+  width: 42px; height: 42px; border-radius: 50%; background: var(--red);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Merriweather', serif; font-size: 14px; font-weight: 700; color: white; flex-shrink: 0;
+}
+.f-brand-en { font-family: 'Merriweather', serif; font-size: 12px; font-weight: 700; color: white; line-height: 1.3; }
+.f-brand-bn { font-family: 'Hind Siliguri', sans-serif; font-size: 10px; color: rgba(255,255,255,0.45); }
+.f-brand p { font-size: 0.87rem; line-height: 1.7; color: rgba(255,255,255,0.55); max-width: 270px; }
+
+.f-col h4 { color: white; font-size: 12px; letter-spacing: 2px; text-transform: uppercase; font-weight: 700; margin-bottom: 1.2rem; }
+.f-col a { display: block; color: rgba(255,255,255,0.55); text-decoration: none; font-size: 13.5px; margin-bottom: 0.55rem; transition: color 0.2s; }
+.f-col a:hover { color: #ffe08a; }
+
+.footer-bottom {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;
+  font-size: 12.5px; color: rgba(255,255,255,0.35);
+}
+.footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; }
+.footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+/* ── DONATION MODAL ── */
+.modal-bg {
+  display: none; position: fixed; inset: 0; z-index: 9000;
+  background: rgba(0,0,0,0.65); align-items: center; justify-content: center;
+}
+.modal-bg.open { display: flex; }
+.modal-box {
+  background: white; border-radius: 3px; padding: 2.5rem 2rem;
+  max-width: 460px; width: 92%; position: relative;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+}
+.modal-box h2 { font-family: 'Merriweather', serif; color: var(--navy); font-size: 1.6rem; margin-bottom: 0.3rem; }
+.modal-box .m-bn { font-family: 'Hind Siliguri', sans-serif; color: var(--gray); font-size: 0.95rem; margin-bottom: 1.4rem; }
+.modal-close { position: absolute; top: 14px; right: 16px; background: none; border: none; font-size: 1.4rem; cursor: pointer; color: #aaa; line-height: 1; }
+.modal-close:hover { color: var(--red); }
+.amt-grid { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 1rem; }
+.amt-btn {
+  padding: 10px 18px; border: 1.5px solid #ddd; border-radius: 2px;
+  font-weight: 700; font-size: 15px; cursor: pointer; background: white;
+  font-family: inherit; transition: all 0.15s;
+}
+.amt-btn:hover, .amt-btn.sel { border-color: var(--blue); color: var(--blue); background: #eef4fb; }
+.modal-box input[type=number] {
+  width: 100%; padding: 11px 13px; border: 1px solid #ddd; border-radius: 2px;
+  font-size: 15px; margin-bottom: 0.5rem; font-family: inherit; outline: none;
+}
+.modal-box input[type=number]:focus { border-color: var(--blue); }
+.modal-note { font-size: 12px; color: #bbb; margin-bottom: 1.2rem; line-height: 1.5; }
+
+/* ── MOBILE NAV ── */
+@media (max-width: 900px) {
+  .top-bar { display: none; }
+  .nav-menu { display: none; position: absolute; top: var(--nav-h); left: 0; right: 0; background: white; flex-direction: column; border-top: 1px solid #eee; box-shadow: 0 8px 20px rgba(0,0,0,0.1); padding: 0.5rem 0 1rem; gap: 0; }
+  nav.open .nav-menu { display: flex; }
+  .hamburger { display: flex; }
+  .nav-item > a { height: auto; line-height: normal; padding: 12px 1.5rem; }
+  .dropdown { display: none !important; }
+  .nav-donate { margin: 0.5rem 1.5rem 0; display: block; text-align: center; }
+  .about-wrap { grid-template-columns: 1fr; }
+  .about-text { padding-left: 0; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .about-badge { right: 0; bottom: -10px; }
+  .stat { padding: 1.5rem 1.2rem; }
+}
+@media (max-width: 580px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .hero h1 { font-size: 1.9rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <span>✉ info@ahkfoundation.org.bd &nbsp;|&nbsp; 📞 +880 1700-000000</span>
+  <div class="top-bar-right">
+    <a href="#">Facebook</a>
+    <a href="#">Twitter</a>
+    <a href="#">Instagram</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">
+    <div class="logo-circle">AHK</div>
+    <div class="logo-text-wrap">
+      <span class="logo-en">Abdul Halim Khan Foundation</span>
+      <span class="logo-bn">আবদুল হালিম খান ফাউন্ডেশন</span>
+    </div>
+  </a>
+
+  <div class="nav-menu" id="navMenu">
+    <div class="nav-item">
+      <a href="#about">About ▾</a>
+      <div class="dropdown">
+        <a href="#about">About Us / আমাদের সম্পর্কে</a>
+        <a href="#">Our Founder / প্রতিষ্ঠাতা</a>
+        <a href="#">Board of Directors</a>
+        <a href="#">Our Team / আমাদের দল</a>
+        <a href="#">Partners / অংশীদার</a>
+        <a href="#contact">Contact / যোগাযোগ</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="#projects">Projects ▾</a>
+      <div class="dropdown">
+        <a href="#">AHK Hospital</a>
+        <a href="#">Maternal &amp; Child Health</a>
+        <a href="#">Mobile Health Teams</a>
+        <a href="#">Mental Health Program</a>
+        <a href="#">Dental Health</a>
+        <a href="#">Disaster Response</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#news">News / সংবাদ</a></div>
+    <div class="nav-item">
+      <a href="#involved">Take Action ▾</a>
+      <div class="dropdown">
+        <a href="#involved">Volunteer / স্বেচ্ছাসেবী</a>
+        <a href="#" onclick="openDonate(event)">Donate / দান</a>
+        <a href="#involved">Fundraise</a>
+      </div>
+    </div>
+    <div class="nav-item"><a href="#contact">Contact</a></div>
+    <a href="#" class="nav-donate" onclick="openDonate(event)">DONATE / দান করুন</a>
+  </div>
+
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <p class="hero-tagline">Providing Lifesaving Services in Bangladesh Since 2000</p>
+    <h1>Healing Communities,<br>Transforming Lives</h1>
+    <p class="hero-bn">মানবতার সেবায় — বাংলাদেশের প্রতিটি মানুষের জন্য সুস্বাস্থ্য</p>
+    <div class="hero-line"></div>
+    <p>The Abdul Halim Khan Foundation delivers essential healthcare to 
+vulnerable people across Bangladesh — because quality medical care is a 
+right, not a privilege.</p>
+    <div class="hero-btns">
+      <a href="#" class="btn-red" onclick="openDonate(event)">Donate Now / দান করুন</a>
+      <a href="#about" class="btn-ghost">Learn More / আরও জানুন</a>
+    </div>
+  </div>
+</div>
+
+<!-- ANNOUNCE -->
+<div class="announce-bar">
+  📢 <strong>নতুন:</strong> কিশোরগঞ্জে আমাদের নতুন স্বাস্থ্যকেন্দ্র উদ্বোধন হয়েছে। &nbsp;
+  <a href="#news">বিস্তারিত জানুন →</a>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">25+</div>
+    <div class="stat-l">Years of Service</div>
+    <div class="stat-bn">বছরের সেবা</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">50K+</div>
+    <div class="stat-l">Patients Treated</div>
+    <div class="stat-bn">রোগী সেবাপ্রাপ্ত</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">12</div>
+    <div class="stat-l">Health Centers</div>
+    <div class="stat-bn">স্বাস্থ্যকেন্দ্র</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">64</div>
+    <div class="stat-l">Districts Reached</div>
+    <div class="stat-bn">জেলায় কার্যক্রম</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" style="background: white;">
+  <div class="container">
+    <div class="about-wrap">
+      <div class="about-img">
+        <div class="img-real"></div>
+        <div class="about-badge">
+          <span class="yr">2000</span>
+          <span class="yr-t">Since<br>প্রতিষ্ঠিত</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="sec-label">About Us / আমাদের সম্পর্কে</span>
+        <h3>Who We Are</h3>
+        <p class="about-bn">আমরা কারা</p>
+        <div class="sec-rule" style="margin-bottom:1.2rem;"></div>
+        <p>The Abdul Halim Khan Foundation has been at the forefront of 
+healthcare delivery in Bangladesh since 2000. Founded with a vision that
+ no one should be denied medical care due to poverty, we have grown into
+ a trusted healthcare organization serving hundreds of thousands across 
+the country.</p>
+        <p>আমরা বিশ্বাস করি প্রতিটি মানুষের মানসম্মত স্বাস্থ্যসেবা 
+পাওয়ার অধিকার রয়েছে। আমাদের দক্ষ চিকিৎসক, নার্স ও স্বেচ্ছাসেবকদের দল 
+দিনরাত এই লক্ষ্যে কাজ করে যাচ্ছে।</p>
+        <p>Our mobile health teams reach the most remote corners of 
+Bangladesh, bringing primary care, maternal health, emergency response, 
+and community health education directly to those who need it most.</p>
+        <a href="#projects" class="btn-blue">Our Projects / আমাদের প্রকল্প</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-bg">
+  <div class="container">
+    <div class="sec-center">
+      <span class="sec-label">Our Work / আমাদের কাজ</span>
+      <h2 class="sec-title">Major Healthcare Projects</h2>
+      <p class="sec-bn">প্রধান স্বাস্থ্যসেবা প্রকল্পসমূহ</p>
+      <div class="sec-rule" style="margin: 0.8rem auto 0;"></div>
+    </div>
+    <div class="projects-grid">
+      <div class="proj-card">
+        <div class="proj-thumb" style="background: linear-gradient(135deg, #1a2e4a 0%, #2c5f8a 100%);">🏥</div>
+        <div class="proj-body">
+          <h3>AHK General Hospital</h3>
+          <p class="proj-bn">এ.এইচ.কে. জেনারেল হাসপাতাল</p>
+          <p>A 100-bed general hospital providing inpatient, outpatient, surgical, and emergency care to all — regardless of ability to pay.</p>
+          <a href="#" class="proj-more">Learn More</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background: linear-gradient(135deg, #7b3f9e 0%, #4a235a 100%);">👩‍⚕️</div>
+        <div class="proj-body">
+          <h3>Maternal &amp; Child Health</h3>
+          <p class="proj-bn">মাতৃ ও শিশু স্বাস্থ্য কার্যক্রম</p>
+          <p>Antenatal care, safe delivery, postnatal support, and child immunization — serving mothers and children across rural Bangladesh.</p>
+          <a href="#" class="proj-more">Learn More</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background: linear-gradient(135deg, #c0392b 0%, #7b241c 100%);">🚑</div>
+        <div class="proj-body">
+          <h3>Mobile Health Teams</h3>
+          <p class="proj-bn">মোবাইল স্বাস্থ্যসেবা দল</p>
+          <p>Our mobile teams travel to the remotest areas, bringing 
+essential medicines, consultations, and health education to underserved 
+communities.</p>
+          <a href="#" class="proj-more">Learn More</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background: linear-gradient(135deg, #1a7a4a 0%, #0e4228 100%);">🧠</div>
+        <div class="proj-body">
+          <h3>Mental Health Program</h3>
+          <p class="proj-bn">মানসিক স্বাস্থ্য কার্যক্রম</p>
+          <p>Breaking the stigma around mental health in Bangladesh through counseling, community support, and psychiatric care.</p>
+          <a href="#" class="proj-more">Learn More</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background: linear-gradient(135deg, #c9920a 0%, #7d5a06 100%);">🦷</div>
+        <div class="proj-body">
+          <h3>Dental Health Initiative</h3>
+          <p class="proj-bn">দন্ত স্বাস্থ্য উদ্যোগ</p>
+          <p>Free dental camps and permanent clinics providing oral health treatment and education to children and adults across Bangladesh.</p>
+          <a href="#" class="proj-more">Learn More</a>
+        </div>
+      </div>
+      <div class="proj-card">
+        <div class="proj-thumb" style="background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);">🆘</div>
+        <div class="proj-body">
+          <h3>Disaster Response Unit</h3>
+          <p class="proj-bn">দুর্যোগ সাড়া দেওয়ার ইউনিট</p>
+          <p>Rapid medical response teams deployed during floods, cyclones, and emergencies — providing care when communities need it most.</p>
+          <a href="#" class="proj-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GET INVOLVED -->
+<section id="involved" class="involved-bg">
+  <div class="container">
+    <div class="sec-center">
+      <span class="sec-label">Take Action / পদক্ষেপ নিন</span>
+      <h2 class="sec-title">Get Involved</h2>
+      <p class="sec-bn">আমাদের সাথে যুক্ত হন — আমাদের আপনাকে দরকার</p>
+      <div class="sec-rule" style="margin: 0.8rem auto 0; background: var(--red);"></div>
+    </div>
+    <div class="involved-grid">
+      <div class="inv-card">
+        <span class="inv-icon">🤝</span>
+        <h3>Volunteer</h3>
+        <p class="inv-bn">স্বেচ্ছাসেবক হিসেবে যোগ দিন</p>
+        <p>Medical professionals, students, and passionate individuals 
+are welcome. Join our team and directly save lives across Bangladesh.</p>
+        <a href="#contact" class="btn-white">Volunteer Now</a>
+      </div>
+      <div class="inv-card">
+        <span class="inv-icon">💚</span>
+        <h3>Donate</h3>
+        <p class="inv-bn">দান করুন</p>
+        <p>Your generous contribution funds our hospitals, mobile units, and outreach programs. Every taka makes a real difference.</p>
+        <button class="btn-white" onclick="openDonate(event)">Donate Now</button>
+      </div>
+      <div class="inv-card">
+        <span class="inv-icon">📣</span>
+        <h3>Fundraise</h3>
+        <p class="inv-bn">তহবিল সংগ্রহ করুন</p>
+        <p>Organize events at your school, workplace, or community. We provide support and recognize your fundraising efforts.</p>
+        <a href="#contact" class="btn-white">Start Fundraising</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section id="news" style="background: white;">
+  <div class="container">
+    <div class="sec-center">
+      <span class="sec-label">Latest / সর্বশেষ</span>
+      <h2 class="sec-title">News &amp; Updates</h2>
+      <p class="sec-bn">সংবাদ ও আপডেট</p>
+      <div class="sec-rule" style="margin: 0.8rem auto 0;"></div>
+    </div>
+    <div class="news-grid">
+      <div class="news-card">
+        <div class="news-cat">Healthcare · স্বাস্থ্যসেবা</div>
+        <div class="news-body">
+          <p class="news-date">May 15, 2025</p>
+          <h4>New Health Center Inaugurated in Kishorganj</h4>
+          <p class="news-bn">কিশোরগঞ্জে নতুন স্বাস্থ্যকেন্দ্র উদ্বোধন</p>
+          <p>A new primary healthcare center was inaugurated in 
+Kishorganj to serve over 50,000 people in surrounding rural communities 
+with free medical services.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-cat">Outreach · আউটরিচ</div>
+        <div class="news-body">
+          <p class="news-date">April 22, 2025</p>
+          <h4>Free Medical Camp Serves 2,000 Patients in Sylhet</h4>
+          <p class="news-bn">সিলেটে বিনামূল্যে চিকিৎসা শিবিরে ২,০০০ রোগীর সেবা</p>
+          <p>Our mobile health teams held a 3-day free medical camp 
+providing consultations, medicines, and diagnostics to over 2,000 
+patients.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-cat">Training · প্রশিক্ষণ</div>
+        <div class="news-body">
+          <p class="news-date">March 8, 2025</p>
+          <h4>Maternal Health Training Program Launches First Cohort</h4>
+          <p class="news-bn">মাতৃ স্বাস্থ্য প্রশিক্ষণ কার্যক্রমের প্রথম ব্যাচ চালু</p>
+          <p>150 community midwives completed the first cohort of our 
+new training program to improve safe delivery outcomes across rural 
+Bangladesh.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONATE BAND -->
+<div class="donate-band">
+  <h2>Support Our Mission</h2>
+  <p class="bn">আমাদের মিশনে সহায়তা করুন</p>
+  <p>Your donation directly funds medical care for thousands who would 
+otherwise go without. Help us reach every corner of Bangladesh.</p>
+  <a href="#" class="btn-white-outline" onclick="openDonate(event)">Donate Today / আজই দান করুন</a>
+</div>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--off-white);">
+  <div class="container-sm">
+    <div class="sec-center" style="margin-bottom: 3rem;">
+      <span class="sec-label">Get In Touch / যোগাযোগ করুন</span>
+      <h2 class="sec-title">Contact Us</h2>
+      <p class="sec-bn">আমাদের সাথে যোগাযোগ করুন</p>
+      <div class="sec-rule" style="margin: 0.8rem auto 0;"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <h3>Our Information</h3>
+        <div class="c-row">
+          <span class="c-icon">📍</span>
+          <p><strong>Address / ঠিকানা</strong>১২৩ স্বাস্থ্য সদন, ঢাকা ১২১২<br>123 Health House, Dhaka 1212</p>
+        </div>
+        <div class="c-row">
+          <span class="c-icon">📞</span>
+          <p><strong>Phone / ফোন</strong>+880 1700-000000</p>
+        </div>
+        <div class="c-row">
+          <span class="c-icon">✉️</span>
+          <p><strong>Email / ইমেইল</strong>info@ahkfoundation.org.bd</p>
+        </div>
+        <div class="c-row">
+          <span class="c-icon">🕐</span>
+          <p><strong>Office Hours</strong>শনি–বৃহস্পতি, সকাল ৯টা – বিকাল ৫টা<br>Sat–Thu, 9 AM – 5 PM</p>
+        </div>
+        <div class="socials">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Twitter">𝕏</a>
+          <a href="#" title="Instagram">in</a>
+          <a href="#" title="LinkedIn">li</a>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="submitForm(event)">
+        <input type="text" placeholder="Your Name / আপনার নাম *" required="">
+        <input type="email" placeholder="Email Address / ইমেইল *" required="">
+        <input type="tel" placeholder="Phone / ফোন নম্বর">
+        <select>
+          <option value="" selected="selected">Subject / বিষয় বেছে নিন</option>
+          <option>Volunteer / স্বেচ্ছাসেবী</option>
+          <option>Donate / দান</option>
+          <option>Partnership / অংশীদারিত্ব</option>
+          <option>General Inquiry / সাধারণ জিজ্ঞাসা</option>
+        </select>
+        <textarea placeholder="Your Message / আপনার বার্তা *" required=""></textarea>
+        <button type="submit" class="btn-blue" style="border:none;cursor:pointer;font-family:inherit;font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:700;">Send Message / পাঠান</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="f-brand">
+      <div class="f-logo">
+        <div class="f-logo-circle">AHK</div>
+        <div>
+          <div class="f-brand-en">Abdul Halim Khan Foundation</div>
+          <div class="f-brand-bn">আবদুল হালিম খান ফাউন্ডেশন</div>
+        </div>
+      </div>
+      <p>Providing lifesaving healthcare to vulnerable communities across Bangladesh since 2000. মানবতার সেবায় নিবেদিত।</p>
+    </div>
+    <div class="f-col">
+      <h4>About</h4>
+      <a href="#about">About Us</a>
+      <a href="#">Our Founder</a>
+      <a href="#">Board of Directors</a>
+      <a href="#">Our Team</a>
+      <a href="#">Partners</a>
+    </div>
+    <div class="f-col">
+      <h4>Projects</h4>
+      <a href="#">AHK Hospital</a>
+      <a href="#">Maternal Health</a>
+      <a href="#">Mobile Teams</a>
+      <a href="#">Mental Health</a>
+      <a href="#">Dental Health</a>
+    </div>
+    <div class="f-col">
+      <h4>Get Involved</h4>
+      <a href="#contact">Volunteer</a>
+      <a href="#" onclick="openDonate(event)">Donate</a>
+      <a href="#contact">Fundraise</a>
+      <a href="#news">News</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Abdul Halim Khan Foundation. All rights reserved.</span>
+    <span>
+      Email: <a href="mailto:info@ahkfoundation.org.bd">info@ahkfoundation.org.bd</a>
+    </span>
+  </div>
+</footer>
+
+<!-- DONATE MODAL -->
+<div class="modal-bg" id="donateModal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeDonate()">✕</button>
+    <h2>Make a Donation</h2>
+    <p class="m-bn">আপনার দান একটি জীবন বদলে দিতে পারে</p>
+    <div class="amt-grid">
+      <button class="amt-btn" onclick="pickAmt(this,500)">৳500</button>
+      <button class="amt-btn" onclick="pickAmt(this,1000)">৳1,000</button>
+      <button class="amt-btn" onclick="pickAmt(this,2500)">৳2,500</button>
+      <button class="amt-btn" onclick="pickAmt(this,5000)">৳5,000</button>
+    </div>
+    <input type="number" id="donateAmt" placeholder="Or enter amount / নিজে লিখুন (৳)" min="10">
+    <p class="modal-note">আপনার দান সরাসরি স্বাস্থ্যসেবায় ব্যয় হবে।<br>Your donation goes directly to healthcare programs.</p>
+    <button class="btn-red" style="width:100%;padding:14px;font-size:14px;border:none;cursor:pointer;font-family:inherit;letter-spacing:1px;" onclick="confirmDonate()">
+      Proceed to Payment / পেমেন্টে যান →
+    </button>
+  </div>
+</div>
+
+<script>
+function toggleNav() {
+  document.getElementById('nav').classList.toggle('open');
+}
+function openDonate(e) {
+  if(e) e.preventDefault();
+  document.getElementById('donateModal').classList.add('open');
+}
+function closeDonate() {
+  document.getElementById('donateModal').classList.remove('open');
+}
+function pickAmt(btn, amt) {
+  document.querySelectorAll('.amt-btn').forEach(b => b.classList.remove('sel'));
+  btn.classList.add('sel');
+  document.getElementById('donateAmt').value = amt;
+}
+function confirmDonate() {
+  const amt = document.getElementById('donateAmt').value;
+  if (!amt || amt < 10) { alert('সঠিক পরিমাণ লিখুন / Please enter a valid amount'); return; }
+  alert('ধন্যবাদ! আপনার ৳' + Number(amt).toLocaleString() + ' দানের জন্য কৃতজ্ঞ।\n\nThank you for your ৳' + Number(amt).toLocaleString() + ' donation!\n\n(Payment gateway — bKash/Nagad/Card — এখানে যুক্ত করুন)');
+  closeDonate();
+}
+document.getElementById('donateModal').addEventListener('click', function(e) {
+  if (e.target === this) closeDonate();
+});
+function submitForm(e) {
+  e.preventDefault();
+  alert('আপনার বার্তা পাঠানো হয়েছে! ধন্যবাদ।\nYour message has been sent! Thank you.');
+  e.target.reset();
+}
+</script>
+
+
+</body></html>
